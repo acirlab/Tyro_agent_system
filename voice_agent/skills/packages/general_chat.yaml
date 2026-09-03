@@ -1,0 +1,6 @@
+name: general_chat
+description: 普通中文对话
+tools: []
+feedback:
+  start: 我正在想一下。
+

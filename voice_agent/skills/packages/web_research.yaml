@@ -1,0 +1,8 @@
+name: web_research
+description: 搜索并整理公开资料
+tools:
+  - web_search
+feedback:
+  start: 我开始搜索相关资料。
+  analyze: 我正在整理找到的信息。
+

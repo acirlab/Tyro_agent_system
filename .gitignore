@@ -1,0 +1,78 @@
+# Python bytecode and test caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Build and packaging artifacts
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# Virtual environments and local interpreters
+.venv/
+venv/
+env/
+ENV/
+.venv*/
+research/open_agents/storm/.venv*/
+
+# Local secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+
+# Runtime logs and temporary files
+*.log
+*.jsonl
+*.tmp
+*.temp
+*.bak
+*.swp
+logs/
+tmp/
+temp/
+
+# Ad-hoc generated images in the repository root
+/*.png
+
+# OS and editor metadata
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local databases
+*.sqlite
+*.sqlite3
+*.db
+
+# Model weights and local ML caches
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+*.onnx
+*.gguf
+.cache/
+huggingface/
+modelscope/
+
+# Generated research data
+research/cache/
+research/runs/
+research/open_agent_outputs/
+
+# Third-party open-source experiments cloned locally
+research/open_agents/

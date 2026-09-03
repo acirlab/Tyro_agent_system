@@ -1,0 +1,24 @@
+{
+  // 快速演示模式：关闭 LLM 长文增强，减少检索和全文解析预算。
+  // 适合现场组会演示；默认配置更偏后台高质量运行。
+  "research": {
+    "use_llm_writer": false,
+    "timeout_seconds": 45,
+    "writer_timeout_seconds": 45,
+    "pipeline_timeout_seconds": 90,
+    "search_timeout_seconds": 30,
+    "max_search_queries": 4,
+    "max_full_text_papers": 2,
+    "max_chunks_per_report": 48,
+    "fetch_full_text": true,
+    "use_embeddings": true,
+    "use_rerank": true
+  },
+  "runtime": {
+    "no_tts": true,
+    "no_play": true
+  },
+  "expression": {
+    "enabled": false
+  }
+}

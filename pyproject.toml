@@ -1,0 +1,10 @@
+[project]
+name = "tyro-duplex"
+version = "0.1.0"
+description = "MVP duplex voice agent runtime."
+requires-python = ">=3.12"
+dependencies = [
+  "numpy",
+  "openai",
+  "PyMuPDF",
+]

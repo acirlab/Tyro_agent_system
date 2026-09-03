@@ -1,0 +1,80 @@
+{
+  "runtime": {
+    "max_turns": 0,
+    "mock_asr_text": null,
+    "no_tts": false,
+    "no_play": false,
+    "output": null,
+    "quiet": false,
+    "debug_save_asr_audio_dir": null
+  },
+  "audio": {
+    "sample_rate": 16000
+  },
+  "model_loading": {
+    "prefer_local_cache": true,
+    "local_files_only": true,
+    "huggingface_cache_dir": null,
+    "modelscope_cache_dir": null
+  },
+  "aec": {
+    "enabled": true,
+    "high_pass_filter": true,
+    "noise_suppression": false,
+    "auto_gain_control": false
+  },
+  "asr": {
+    "model": "iic/SenseVoiceSmall",
+    "device": "auto"
+  },
+  "eot": {
+    "repo_id": "FireRedTeam/FireRedChat-turn-detector",
+    "model_file": "chinese_best_model_q8.onnx",
+    "tokenizer": "google-bert/bert-base-multilingual-cased",
+    "max_length": 128
+  },
+  "llm": {
+    "provider": "qwen",
+    "model": "qwen-flash",
+    "api_key_env": "DASHSCOPE_API_KEY",
+    "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "system_prompt": "你是一个语音对话助手。请用中文自然回答，尽可能简短，通常不超过两句话。不要复述用户问题，直接回答。",
+    "temperature": 0.3,
+    "max_tokens": 256,
+    "timeout_seconds": 20
+  },
+  "research": {
+    "enabled": true,
+    "planner_model": "qwen3.7-plus",
+    "writer_model": "qwen3.7-plus",
+    "verifier_model": "qwen3.7-plus",
+    "api_key_env": "DASHSCOPE_API_KEY",
+    "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "writer_max_tokens": 8192,
+    "timeout_seconds": 300,
+    "use_llm_writer": true,
+    "embedding_model": "text-embedding-v4",
+    "rerank_model": "qwen3-rerank",
+    "use_embeddings": true,
+    "use_rerank": true,
+    "fetch_full_text": true,
+    "max_full_text_papers": 8,
+    "max_search_queries": 10,
+    "search_timeout_seconds": 90,
+    "max_chunks_per_report": 120,
+    "chunk_chars": 1800,
+    "chunk_overlap": 240,
+    "full_text_cache_dir": "research/cache/full_text",
+    "pipeline_timeout_seconds": 900,
+    "writer_timeout_seconds": 600
+  },
+  "tts": {
+    "provider": "kokoro",
+    "language": "zh",
+    "lang_code": "z",
+    "repo_id": "hexgrad/Kokoro-82M",
+    "voice": "zf_xiaoyi",
+    "sample_rate": 24000,
+    "device": "auto"
+  }
+}

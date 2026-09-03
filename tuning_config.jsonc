@@ -1,0 +1,107 @@
+{
+  "audio": {
+    // 麦克风输入切块大小，单位秒。越小响应越快，但调度开销更高。
+    "chunk_seconds": 0.03
+  },
+
+  "pvad": {
+    // 普通用户开口检测阈值。越高越不容易把噪声当成说话，但可能漏掉轻声。
+    "activation_threshold": 0.5,
+
+    // 普通 VAD 最短连续说话保护阈值，单位秒。
+    // 只有连续检测到说话达到这个时长，才会正式进入 SPEECH 状态。
+    // 调大可减少偶然声响误触发；调小可降低开口延迟。
+    "min_speech_seconds": 0.2,
+
+    // 用户说话后出现短静音多久开始跑 ASR/EOT，单位秒。
+    // 越小越快判断用户是否说完；越大越不容易截断短暂停顿。
+    "short_silence_seconds": 0.35,
+
+    // EOT 判断用户没说完时，额外等待用户继续说话的最长时间，单位秒。
+    "extra_wait_seconds": 2.0,
+
+    // 检测到开口后，向前补多少秒音频，避免切掉句首。
+    "pre_speech_padding_seconds": 0.4,
+
+    // 送入 ASR 的最短音频片段长度，单位秒。
+    // 这是 ASR 前保护，不等同于 min_speech_seconds 的开口确认保护。
+    "min_segment_seconds": 0.1,
+
+    // 更新说话人嵌入所需的最短用户语音长度，单位秒。
+    "speaker_embedding_min_seconds": 1.0,
+
+    // 是否在足够长的用户语音后更新 pVAD 的说话人嵌入。
+    "update_speaker_embedding": true
+  },
+
+  "eot": {
+    // 轮次结束概率阈值。越高越倾向继续等待用户说完。
+    "threshold": 0.7,
+
+    // EOT 前是否去掉 SenseVoice 自动补出的末尾标点。
+    "strip_trailing_punctuation": true,
+
+    // EOT 前会从文本末尾移除的标点集合。
+    "trailing_punctuation": "。！？!?，,；;：:、."
+  },
+
+  "interruption": {
+    // 是否启用机器人播放中用户插话检测。
+    "enabled": true,
+
+    // 播放中打断检测的 VAD 阈值。通常应高于普通 pVAD 阈值。
+    "vad_activation_threshold": 0.75,
+
+    // 播放中打断所需的最短连续说话时间，单位秒。
+    "min_speech_seconds": 0.25,
+
+    // 一次打断后，最长等待用户完整轮次的时间，单位秒。
+    "max_interruption_seconds": 30.0
+  },
+
+  "aec": {
+    // AEC 远端播放到麦克风回声的估计延迟，单位毫秒。
+    "stream_delay_ms": 120,
+
+    // AEC 每帧处理时长，单位毫秒。
+    "frame_ms": 10,
+
+    // sounddevice 流延迟设置。
+    "latency": "high"
+  },
+
+  "tts": {
+    // TTS 语速倍率。
+    "speed": 1.0
+  },
+
+  "expression": {
+    // 是否启动表情视频窗口。默认开启；调试无桌面环境时可改成 false。
+    "enabled": true,
+
+    // 表情视频目录。文件名去掉扩展名后就是表情名，例如 neutral.mp4 -> neutral。
+    "video_dir": "expression_video",
+
+    // Agent 不说话、空闲时使用的默认表情。
+    "default_expression": "neutral",
+
+    // 表情窗口统一显示宽度，单位像素。默认使用 neutral.mp4 的宽度。
+    "display_width": 640,
+
+    // 表情窗口统一显示高度，单位像素。默认使用 neutral.mp4 的高度。
+    "display_height": 368,
+
+    // 是否保持原视频宽高比。true 会等比缩放并用黑边补齐；false 会拉伸填满窗口。
+    "keep_aspect_ratio": true,
+
+    // 播放器窗口标题。
+    "window_title": "Tyro Expression",
+
+    // 是否让 LLM 根据即将播报的文本选择表情。
+    // 关闭后会使用本地关键词规则兜底选择表情。
+    "choose_with_llm": true,
+
+    // 普通回答说完后是否自动回到 neutral。
+    "reset_to_neutral_after_speech": true
+  }
+}

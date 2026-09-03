@@ -1,0 +1,7 @@
+name: academic_research
+description: 检索学术论文并生成综述或 SOTA 调研报告
+tools:
+  - academic_research
+feedback:
+  start: 我开始做科研文献调研。
+  analyze: 我正在整理论文和引用信息。

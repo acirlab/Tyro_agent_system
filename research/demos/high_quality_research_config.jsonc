@@ -1,0 +1,26 @@
+{
+  // 离线高质量模式：更接近 STORM / AutoSurvey / OpenScholar 的长跑配置。
+  // 适合提前生成组会材料，不建议现场语音 demo 使用。
+  "research": {
+    "use_llm_writer": true,
+    "writer_model": "qwen3.7-plus",
+    "writer_max_tokens": 8192,
+    "timeout_seconds": 300,
+    "writer_timeout_seconds": 600,
+    "pipeline_timeout_seconds": 900,
+    "search_timeout_seconds": 90,
+    "max_search_queries": 10,
+    "max_full_text_papers": 8,
+    "max_chunks_per_report": 120,
+    "fetch_full_text": true,
+    "use_embeddings": true,
+    "use_rerank": true
+  },
+  "runtime": {
+    "no_tts": true,
+    "no_play": true
+  },
+  "expression": {
+    "enabled": false
+  }
+}
